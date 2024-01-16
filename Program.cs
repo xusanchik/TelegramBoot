@@ -55,7 +55,7 @@ async Task HandlaMessageAsync(ITelegramBotClient? botClient, Update update, Canc
 async Task HandleAudioMessageAsync(ITelegramBotClient? botClient, Update update, CancellationToken cancellationToken)
 {
     await botClient.SendVoiceAsync(
-        chatId:update.Message.Chat.Id,
+        chatId:update.Id,
         voice: InputFile.FromUri("https://github.com/TelegramBots/book/raw/master/src/docs/audio-guitar.mp3"),
     cancellationToken: cancellationToken);
         
@@ -64,8 +64,9 @@ async Task HandleAudioMessageAsync(ITelegramBotClient? botClient, Update update,
 async Task HandleVideoMessageAync(ITelegramBotClient? botClient, Update update, CancellationToken cancellationToken)
 {
     await botClient.SendPhotoAsync(
-        chatId: update.Message.Chat.Id,
-        photo:InputFile.FromUri("https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.stat.uz%2Fimages%2Fishbilarmonlik.jpg&tbnid=OLzPvpKHzp-qGM&vet=12ahUKEwjHs73m6t-DAxXhOhAIHd0jCvEQMygHegQIARBA..i&imgrefurl=https%3A%2F%2Fwww.stat.uz%2Fen%2Fabout%2Fcentral-office&docid=iyGn_1ISAN1_EM&w=499&h=400&q=samadov%20xusan&ved=2ahUKEwjHs73m6t-DAxXhOhAIHd0jCvEQMygHegQIARBA"),
+        chatId: update.Id,
+        caption: "Ishlashi kerek",
+        photo:InputFile.FromUri( "https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.stat.uz%2Fimages%2Fishbilarmonlik.jpg&tbnid=OLzPvpKHzp-qGM&vet=12ahUKEwjHs73m6t-DAxXhOhAIHd0jCvEQMygHegQIARBA..i&imgrefurl=https%3A%2F%2Fwww.stat.uz%2Fen%2Fabout%2Fcentral-office&docid=iyGn_1ISAN1_EM&w=499&h=400&q=samadov%20xusan&ved=2ahUKEwjHs73m6t-DAxXhOhAIHd0jCvEQMygHegQIARBA"),
         cancellationToken:cancellationToken
         );
 }
@@ -73,7 +74,7 @@ async Task HandleVideoMessageAync(ITelegramBotClient? botClient, Update update, 
 async Task HandlaTextMessageAsync(ITelegramBotClient? botClient, Update update, CancellationToken cancellationToken)
 {
     await botClient.SendTextMessageAsync(
-        chatId: update.Message.Chat.Id,
+        chatId: update.Id,
         text: update.Message.Text = "nima holavosan ukamjonim"
         ); 
 }
